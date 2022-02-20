@@ -20,39 +20,39 @@
 
                             <div class="input-group input-group-outline my-3 ">
                                 <label class="form-label">Logo</label>
-                                <input type="file" class="form-control" name="logo" value="{{$setting->logo}}">
+                                <input type="file" class="form-control" name="logo">
                             </div>
 
 
                             <div class="input-group input-group-outline my-3 ">
                                 <label class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" value="{{$setting->email}}">
+                                <input type="email" class="form-control" name="email" >
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Title</label>
-                                <input type="text" class="form-control" name="title" value="{{$setting->title}}" >
+                                <input type="text" class="form-control" name="title" >
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" value="{{$setting->address}}" >
+                                <input type="text" class="form-control" name="address" >
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Phone</label>
-                                <input type="text" class="form-control" name="phone" value="{{$setting->phone}}">
+                                <input type="text" class="form-control" name="phone" >
                             </div>
 
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Description</label>
-                                <input type="text" class="form-control" name="description" value="{{$setting->description}}">
+                                <input type="text" class="form-control" name="description">
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">URL</label>
-                                <input type="text" class="form-control" name="mainurl" value="{{$setting->mainurl}}">
+                                <input type="text" class="form-control" name="mainurl">
                             </div>
 
 
@@ -70,4 +70,3 @@
     </div>
 
 @endsection
-

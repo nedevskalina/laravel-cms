@@ -6,9 +6,10 @@
         <div class="col-md-4">
 
             <section>
-                <a href="/admin/settings " class="btn btn-primary">Settings</a>
 
+                <a href="/admin/settings/{{$setting->id}}/edit" class="btn btn-primary">Edit Settings</a>
             </section>
+
         </div>
     </div>
 
@@ -22,6 +23,8 @@
                     </div>
 
                     <div class="card-body">
+                        {{$setting->email}}
+
                     </div>
 
                     <div class="card-footer bg-white d-flex justify-content-between py-3">
@@ -29,6 +32,7 @@
                     </div>
                 </div>
             </section>
+
         </div>
 
 
@@ -42,7 +46,9 @@
                         <h5 class="mb-0 fw-bold">Title</h5>
                     </div>
                     <div class="card-body">
-                    HI
+
+                        {{$setting->title}}
+
                     </div>
 
                     <div class="card-footer bg-white d-flex justify-content-between py-3">
@@ -64,8 +70,8 @@
                     </div>
 
                     <div class="card-body">
-                    image
-                    </div>
+
+                        <img src="/assets/img/settings/thumbnails/{{ $setting->logo }}" alt="{{ $setting->name }}" />                    </div>
 
                     <div class="card-footer bg-white d-flex justify-content-between py-3">
 
@@ -90,7 +96,7 @@
                     </div>
 
                     <div class="card-body">
-
+                        {{$setting->description}}
                     </div>
 
                     <div class="card-footer bg-white d-flex justify-content-between py-3">
@@ -112,7 +118,7 @@
                     </div>
 
                     <div class="card-body">
-
+                        {{$setting->address}}
                     </div>
 
                     <div class="card-footer bg-white d-flex justify-content-between py-3">
@@ -134,7 +140,7 @@
                         </div>
 
                         <div class="card-body">
-
+                            {{$setting->phone}}
                         </div>
 
                         <div class="card-footer bg-white d-flex justify-content-between py-3">
@@ -143,15 +149,16 @@
                     </div>
                 </section>
             </div>
-    </div>
+        </div>
 
-    <br>
+<br>
+
+
     <div class="row">
 
         <div class="col-md-12">
 
             <section>
-
 
                 <div class="card">
                     <div class="card-header bg-white text-center py-3">

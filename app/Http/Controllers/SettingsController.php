@@ -6,6 +6,8 @@ use App\Http\Controllers\Helper\ImageStore;
 use Illuminate\Http\Request;
 use App\Models\Settings;
 use Illuminate\Support\Facades\Validator;
+use Intervention\Image\ImageManagerStatic as Image;
+use App\Http\Controllers\Helper;
 
 class SettingsController extends Controller
 {
@@ -16,10 +18,20 @@ class SettingsController extends Controller
      */
     public function index()
     {
-            $settings = Settings::all();
-            $data = ['settings' => $settings];
+            $setting = Settings::first(); // samo prviot setting da go zeme od baza
+            $data = ['setting' => $setting];
 
-            return view('dashboard.settings.settings')->with($data);
+            if ($setting)
+            {
+                return view('dashboard.settings.settings')->with($data);
+
+            }
+            else
+            {
+                return view('dashboard.settings.create');
+
+            }
+
     }
 
     /**
@@ -61,12 +73,12 @@ class SettingsController extends Controller
             $description = $request->get('description');
             $address = $request->get('address');
             $logo = $request->file('logo');
+            $mainurl = $request->get('mainurl');
 
 
-            $imgObj = new ImageStore($request, 'settings');
+            $imgObj = new ImageStore($request, 'settings','logo');
 
             $logo = $imgObj->imageStore();
-
 
 
             $setting = Settings::create([
@@ -75,13 +87,14 @@ class SettingsController extends Controller
                 'email' => $email,
                 'description' => $description,
                 'address' => $address,
+                'mainurl' => $mainurl,
                 'logo' => $logo
 
             ]);
 
 
 
-
+            return view('dashboard.settings.settings');
 
     }
 
@@ -105,7 +118,10 @@ class SettingsController extends Controller
     public function edit($id)
     {
 
-        return view('dashboard.settings.edit');
+        $setting = Settings::FindOrFail($id);
+        $data = ['setting' => $setting];
+
+        return view('dashboard.settings.edit')->with($data);
     }
 
     /**
@@ -117,7 +133,13 @@ class SettingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+
+
+        
+
+
+
     }
 
     /**

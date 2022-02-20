@@ -22,17 +22,17 @@ return new class extends Migration
             $table->string('logo');
             $table->string('address');
             $table->string('phone');
-            $table->string('twitter');
-            $table->string('facebook');
-            $table->string('skype');
-            $table->string('linkedin');
-            $table->string('youtube');
-            $table->string('flickr');
-            $table->string('pinterest');
-            $table->foreignId('user_id')->unsigned();
+            $table->string('twitter')->nullable();
+            $table->string('facebook')->nullable();
+            $table->string('skype')->nullable();
+            $table->string('linkedin')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('flickr')->nullable();
+            $table->string('pinterest')->nullable();
+            $table->foreignId('user_id')->unsigned()->nullable();
             $table->foreign('user_id')->references('id')->on('users');
-            $table->double('lat',20,10);
-            $table->double('lng',20,10);
+            $table->double('lat',20,10)->nullable();
+            $table->double('lng',20,10)->nullable();
             $table->timestamps();
         });
     }
