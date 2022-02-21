@@ -77,7 +77,7 @@ class UserController extends Controller
 
         ]);
 
-        $data = ['user' => $user ];
+        $data = ['users' => $user ];
 
         return view('dashboard.users.users')->with($data);
 
