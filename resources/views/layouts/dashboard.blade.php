@@ -557,6 +557,9 @@
 <script src="/assets/js/material-dashboard.min.js?v=3.0.0"></script>
 <script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
 
+@yield('scripts')
+
+
 
 </body>
 

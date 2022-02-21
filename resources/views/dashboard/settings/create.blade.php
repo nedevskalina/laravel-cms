@@ -47,7 +47,7 @@
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Description</label>
-                                <input type="text" class="form-control" name="description">
+                                <textarea id="editor1" type="text" class="form-control" name="description"></textarea>
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
@@ -69,4 +69,11 @@
         </div>
     </div>
 
+@endsection
+@section('scripts')
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace( 'editor1' );
+    </script>
 @endsection

@@ -15,8 +15,9 @@
                     </div>
                     <div class="card-body">
 
-                        <form role="form" class="text-start" method="post" action="/admin/settings" enctype="multipart/form-data">
+                        <form role="form" class="text-start" method="post" action="/admin/settings/{{$setting->id}}" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
 
                             <div class="input-group input-group-outline my-3 ">
                                 <label class="form-label">Logo</label>
@@ -47,7 +48,7 @@
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Description</label>
-                                <input type="text" class="form-control" name="description" value="{{$setting->description}}">
+                                <textarea name="description" id="editor1" type="text" class="form-control">{{$setting->description}}</textarea>
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
@@ -71,3 +72,12 @@
 
 @endsection
 
+
+
+@section('scripts')
+    <script>
+        // Replace the <textarea id="editor1"> with a CKEditor 4
+        // instance, using default configuration.
+        CKEDITOR.replace( 'editor1' );
+    </script>
+@endsection
