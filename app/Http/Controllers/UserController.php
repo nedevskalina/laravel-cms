@@ -77,7 +77,11 @@ class UserController extends Controller
 
         ]);
 
-        return redirect()->route('users.index');
+        $data = ['user' => $user ];
+
+        return view('dashboard.users.users')->with($data);
+
+
 
     }
 
@@ -120,16 +124,6 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => 'required|max:255',
-            'email' => 'required|unique:users',
-        ]);
-
-        if ($validator->fails()) {
-            return redirect()->back()
-                ->withErrors($validator)
-                ->withInput();
-        }
 
         $user = User::find($id); // user with id
 
@@ -143,7 +137,7 @@ class UserController extends Controller
 
         $user->fill($input)->save();
 
-        return redirect()->back();
+    return redirect()->back();
 
     }
 

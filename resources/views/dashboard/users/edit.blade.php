@@ -15,8 +15,15 @@
                     </div>
                     <div class="card-body">
 
-                        <form role="form" class="text-start" method="post" action="/admin/users" enctype="multipart/form-data">
+                        <form role="form" class="text-start" method="post" action="/admin/users/{{$user->id}}" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
+
+
+                            <div class="input-group input-group-outline my-3 ">
+                                <label class="form-label">Image</label>
+                                <input type="file" class="form-control" name="image" value="{{ $user->image }}">
+                            </div>
 
                             <div class="input-group input-group-outline my-3 ">
                                 <label class="form-label">Name</label>

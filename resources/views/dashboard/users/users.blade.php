@@ -17,7 +17,7 @@
         <tbody>
         @foreach($users as $user)
             <tr>
-                <td><img src="/assets/img/users/thumbnails/{{ $user->image }}" alt="{{ $user->name }}" /></td>
+                <td><img src="/assets/img/users/thumbnails/{{ $user->image }}" alt="{{ $user->name }}"/></td>
 
                 <td>{{$user -> id}}</td>
                 <td>
