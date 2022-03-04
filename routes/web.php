@@ -28,6 +28,12 @@ Route::get('/', function () {
 
         Route::resource('/settings',\App\Http\Controllers\SettingsController::class);
 
+        Route::resource('/products',\App\Http\Controllers\ProductsController::class);
+        Route::get('/products/{id}/delete',[\App\Http\Controllers\ProductsController::class,'destroy'])->name('products.delete');
+
+
+
+
 
     });
 
