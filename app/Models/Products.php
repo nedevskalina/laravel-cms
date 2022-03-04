@@ -35,4 +35,27 @@ class Products extends Model
 
     }
 
+
+
+    public static function getList()
+    {
+        $categories = self::all();
+        $lists = '';
+        foreach ($categories as $category) {
+            if ($category->parent_id === null) {
+                $lists .= self::renderOption($category);
+            }
+        }
+        return $lists;
+    }
+
+    private static function dash($depth)
+    {
+        $dash = '';
+        for ($i = 1; $i <= $depth; $i++) {
+            $dash .= ' - ';
+        }
+        return $dash;
+    }
+
 }

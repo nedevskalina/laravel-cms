@@ -32,8 +32,11 @@ class CategoriesController extends Controller
     public function create()
     {
 
+
         $categories = Categories::getList();
         $data = ['categories' => $categories];
+
+
 
         return view('dashboard.categories.create')->with($data);
 

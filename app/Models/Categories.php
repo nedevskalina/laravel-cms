@@ -92,8 +92,6 @@ class Categories extends Model
 
 
 
-
-
     public static function getList()
     {
         $categories = self::all();

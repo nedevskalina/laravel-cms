@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categories;
 use App\Models\Products;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Helper\ImageStore;
 
@@ -30,7 +32,11 @@ class ProductsController extends Controller
     public function create()
     {
 
-        return view('dashboard.products.create');
+        $users = User::all();
+        $categories = Categories::getList();
+        $data = ['categories' => $categories, 'users' => $users];
+
+        return view('dashboard.products.create')->with($data);
     }
 
     /**

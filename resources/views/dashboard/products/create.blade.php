@@ -56,12 +56,18 @@
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">Category ID</label>
-                                <input type="text" class="form-control" name="cat_id">
+                                <select name="cat_id" class="form-control">
+                                    {!! $categories !!}
+
+                                </select>
                             </div>
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">User ID</label>
-                                <input type="text" class="form-control" name="user_id">
+                                <select name="user_id" class="form-control">
+
+                                    {!! $users !!}
+                                </select>
                             </div>
 
 
