@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('description');
             $table->float('price');
             $table->integer('quantity');
-            $table->integer('user_id');
+            $table->string('user_id');
             $table->integer('cat_id');
             $table->string('image');
 

@@ -58,6 +58,8 @@ class ProductsController extends Controller
         $image = $request->file('image');
         $description = $request->get('description');
         $user = $request->get('user_id');
+        $category=$request->get('cat_id');
+
 
 
         $imageObj = new ImageStore($request, 'products');
@@ -71,7 +73,8 @@ class ProductsController extends Controller
             'quantity' => $quantity,
             'description' => $description,
             'user_id' => $user,
-            'image' => $image
+            'image' => $image,
+            'cat_id' => $category
 
         ]);
 
