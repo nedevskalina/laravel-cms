@@ -17,6 +17,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
+
         $products = Products::all();
         $data = ['products' => $products];
 
@@ -32,11 +33,13 @@ class ProductsController extends Controller
     public function create()
     {
 
-        $users = User::all();
+        $users = User::getUsers();
         $categories = Categories::getList();
         $data = ['categories' => $categories, 'users' => $users];
 
         return view('dashboard.products.create')->with($data);
+
+
     }
 
     /**

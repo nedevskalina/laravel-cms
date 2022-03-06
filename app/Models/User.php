@@ -42,4 +42,19 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+
+    public static function getUsers()
+    {
+        $users = self::all();
+        $lists = [];
+        foreach ($users as $user) {
+
+            $lists[]=$user;
+
+        }
+
+        return $lists;
+    }
 }

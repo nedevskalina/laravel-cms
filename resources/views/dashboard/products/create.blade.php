@@ -64,10 +64,12 @@
 
                             <div class="input-group input-group-outline mb-3 ">
                                 <label class="form-label">User ID</label>
-                                <select name="user_id" class="form-control">
+                                    <select name="user_id" class="form-control">
+                                        @foreach($users as $user)
+                                    <option>{{$user->name}}</option>
+                                        @endforeach
 
-                                    {!! $users !!}
-                                </select>
+                                    </select>
                             </div>
 
 
