@@ -31,6 +31,10 @@ Route::get('/', function () {
         Route::resource('/products',\App\Http\Controllers\ProductsController::class);
         Route::get('/products/{id}/delete',[\App\Http\Controllers\ProductsController::class,'destroy'])->name('products.delete');
 
+        Route::resource('/scripts',\App\Http\Controllers\ScriptsController::class);
+
+        Route::post('/scripts/{id}/active', [\App\Http\Controllers\ScriptsController::class, 'updateToken'])->name('scripts.status');
+
 
 
 
