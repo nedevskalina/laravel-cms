@@ -50,46 +50,32 @@ class Categories extends Model
         return $list;
     }
 
-    public static function getTreeHP()
-    {
-        $categories = self::all();
 
-        $lists = '';
-        foreach ($categories as $category) {
-            if ($category['parent_id'] === null) {
-                $lists .= self::renderNodeHP($category);
-            }
-        }
 
+    public static function getTreeHP() {
+        $categories = self::where('parent_id', '=', null)->get();
+
+        $lists = '<li class="dropdown mega-menu">';
+        foreach($categories as $category)
+            $lists .= self::renderNodeHP($category);
+        $lists .= "</li>";
         return $lists;
     }
 
-    public static function renderNodeHP($node)
-    {
-        $list = '<li class="dropdown-item dropdown"><a href="/categories/'.$node->id.'" class="dropdown-link" data-toggle="dropdown">' . $node->name . '</a>';
+
+    public static function renderNodeHP($node) {
+        $list = '<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/categories/'.$node->id.'">'.$node->name.'</a>';
         $children = self::where('parent_id', '=', $node->id)->get();
-        $count = $children->count();
-        if ($count > 0) {
-            $list .= '<ul class="dropdown-menu dropdown-menu-hover dropdown-menu-block-md shadow-lg b-0 m-0">';
-            foreach ($children as $child) {
-
+        if ($children->count() > 0 ) {
+            $list .= '<ul class="dropdown-menu">';
+            foreach($children as $child)
                 $list .= self::renderNodeHP($child);
-
-            }
-
-            $list .= '</li></ul>';
-
+            $list .= "</ul>";
         }
 
-
-
-
-
+        $list .= "</li>";
         return $list;
-
-
     }
-
 
 
     public static function getList()

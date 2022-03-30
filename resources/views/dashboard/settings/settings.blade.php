@@ -7,7 +7,7 @@
 
             <section>
 
-                <a href="/admin/settings/{{$setting->id}}/edit" class="btn btn-primary">Edit Settings</a>
+                <a href="/admin/settings/{{ $setting->id }}/edit" class="btn btn-primary">Edit Settings</a>
             </section>
 
         </div>
@@ -23,7 +23,7 @@
                     </div>
 
                     <div class="card-body">
-                        {{$setting->email}}
+                        {{ $setting->email }}
 
                     </div>
 
